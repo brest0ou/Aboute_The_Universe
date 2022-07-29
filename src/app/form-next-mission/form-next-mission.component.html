@@ -1,0 +1,70 @@
+<main class="container container-1-1">
+    <div>
+        <div class="card card-1">
+            <h2 class="title">S'incrire pour le prochain décolage !</h2>
+            <p>Inscrivez-vous pour participer aux prochaines trouvailles !</p>
+            <form *ngIf="addCommentForm" [formGroup]="addCommentForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-group-1-1" >
+                    <div class="form-group">
+                        <label for="first_name">Prénom</label>
+                        <input type="text" formControlName="last_name_id" class="form-control" id="first_name" placeholder="Entrez votre prénom"><!---->
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Nom</label>
+                        <input type="text" formControlName="first_name_id" class="form-control" id="last_name" placeholder="Entrez votre nom"><!---->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="weight">Poids</label>
+                        <input type="number" formControlName="weight_id" class="form-control" id="weight" placeholder="Entrez votre poids"><!---->
+                    </div>
+                    <div></div>
+                </div>
+
+                <div class="form-group">
+                    <h2 class="subtitle mt-5 mb-3">Choississez votre combinaison spatiale : </h2>
+                    <span  class="badge badge-primary mr-2">
+                        <input  type="radio" formControlName="choice" name="checkbox" id="1" value="1">
+                        <label for="1">
+                            <img class="sm-icon" src="../../assets/images/H5b884ceb87634afa8f989e09ecf0066c9.jpg_640x640Q90.jpg_.jpg" alt="Combinaison spatiale n°1">
+                        </label>
+                    </span>
+                    <span class="badge badge-primary">
+                        <input  type="radio" formControlName="choice_2" name="checkbox" id="2" value="2">
+                        <label for="2">
+                            <img class="sm-icon" src="../../assets/images/Poe_Dameron_corps.jpg" alt="Combinaison spatiale n°2">
+                        </label>
+                    </span>
+                </div>
+
+                <button class="btn">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="card card-2">
+            <h2 class="title text-primary">Liste des participants</h2>
+            <table class="table w-100"><thead class="thead" >
+                <tr>
+                    <th class="th">Nom Prénom</th>
+                    <th class="th">Poids</th>
+                    <th class="th text-right">Combinaison spatiale</th>
+                </tr></thead><tbody class="tbody">
+                    <tr class="tr" *ngFor="let candidat of candidats" >
+                        <td class="td">{{candidat.first_name_id}}  {{candidat.last_name_id}}</td>
+                        <td class="td">{{candidat.weight_id}}</td>
+                        <td class="td text-right" *ngIf="candidat.choice">
+                         <img class="sm-icon-sp" src="../../assets/images/H5b884ceb87634afa8f989e09ecf0066c9.jpg_640x640Q90.jpg_.jpg" alt="Combinaison spatiale n°1">
+                        </td>
+                        <td class="td" *ngIf="candidat.choice_2">
+                            <img class="sm-icon-sp" src="../../assets/images/Poe_Dameron_corps.jpg" alt="Combinaison spatiale n°2">
+                           </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>

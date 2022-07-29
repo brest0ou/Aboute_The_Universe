@@ -1,0 +1,52 @@
+<main class="container container-1-2">
+    <app-index-planets (MonItemEvent)="showPlanet($event)"></app-index-planets>
+    <div *ngIf="!planet" > <p class="card info text-secondary" >Veuillez Selectionnez une planète!</p></div>
+    <div *ngIf="planet">
+        <div class="card">
+          <div class="information mb-5">
+            <div>
+              <h2 class="title text-secondary">{{planet.name}}</h2>
+              <div class="info mb-3">
+                <span class="text-secondary">Population :</span>
+              {{planet.population}}</div>
+            </div>
+          </div>
+          
+          <div class="d-grid-2 mt-5 mb-5 w-100">
+            <div class="information">
+              <span class="far fa-circle fa-3x img text-secondary"></span>
+              <div>
+                <div class="bold text-secondary"> Diamètre </div>
+                <p>{{planet.diameter}}</p>
+              </div>
+            </div>
+            <div class="information">
+              <span class="fas fa-thermometer-full fa-3x img text-secondary"></span>
+              <div>
+                <div class="bold text-secondary"> Climat </div>
+                <p>{{planet.climate}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="d-grid-2 mt-5 mb-5 w-100">
+            <div class="information">
+              <span class="fas fa-magnet fa-3x img text-secondary"></span>
+              <div>
+                <div class="bold text-secondary"> Gravité </div>
+                <div class="info">{{planet.gravity}}</div>
+              </div>
+            </div>
+            <div class="information">
+              <span class="fas fa-tree fa-3x img text-secondary"></span>
+              <div>
+                <div class="bold text-secondary"> Terrain </div>
+                <div class="info">{{planet.terrain}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 d-flex right">
+            <div class="btn">En savoir plus</div>
+          </div>
+        </div>
+      </div>
+    </main>
